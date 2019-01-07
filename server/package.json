@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pg": "^7.7.1",
+    "redis": "^2.8.0",
+    "cors": "^2.8.5",
+    "nodemon": "^1.18.9",
+    "body-parser": "^1.18.3"
+  },
+  "scripts": {
+    "clean": "rm -fr node_modules",
+    "dev": "nodemon",
+    "start": "node index.js"
+  }
+}
