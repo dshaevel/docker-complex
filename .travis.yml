@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t dshaevel/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run dshaevel/react-test yarn test --coverage
+
+after_success:
+  - docker build -t dshaevel/docker-complex-client ./client
+  - docker build -t dshaevel/docker-complex-nginx ./nginx
+  - docker build -t dshaevel/docker-complex-server ./server
+  - docker build -t dshaevel/docker-complex-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push dshaevel/docker-complex-client
+  - docker push dshaevel/docker-complex-nginx
+  - docker push dshaevel/docker-complex-server
+  - docker push dshaevel/docker-complex-worker
