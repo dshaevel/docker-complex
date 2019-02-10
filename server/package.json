@@ -5,10 +5,10 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
-    "pg": "^7.7.1",
+    "pg": "^7.8.0",
     "redis": "^2.8.0",
     "cors": "^2.8.5",
-    "nodemon": "^1.18.9",
+    "nodemon": "^1.18.10",
     "body-parser": "^1.18.3"
   },
   "scripts": {
